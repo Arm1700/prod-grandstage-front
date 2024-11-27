@@ -1,0 +1,249 @@
+/* Course */
+
+
+.absoluteP {
+    transform: translate(-50%, -50%);
+}
+
+.opacityPopularCourseStand {
+    transition: all 1s ease;
+}
+
+.opacityPopularCourseStand2 {
+    transition: all 0.5s;
+}
+
+/*.opacityPopularCourse {*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*    max-height: 400px;*/
+/*    transition: transform 0.4s ease-in-out;*/
+/*}*/
+
+/*.opacityPopularCourse img {*/
+/*    width: 100%;*/
+/*    object-fit: cover;*/
+/*    transition: transform 0.4s ease-in-out;*/
+/*}*/
+
+/*.opacityPopularCourse img.translate-y-1-2 {*/
+/*    transform: translateY(50%); !* Сдвигаем изображение вниз на 50% при наведении *!*/
+/*}*/
+
+/*.opacityPopularCourse .hover-content {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 50%; !* Верхняя половина контейнера *!*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    transform: translateY(-100%); !* Скрываем блок за пределами видимости *!*/
+/*    transition: transform 0.5s ease; !* Переход для плавного появления *!*/
+/*}*/
+
+/*.opacityPopularCourse:hover .hover-content {*/
+/*    transform: translateY(0); !* Показываем блок при наведении *!*/
+/*}*/
+
+
+/* Pagination.css */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 5px;
+}
+
+.pagination__previous,
+.pagination__next {
+    color: #666666;
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    user-select: none;
+}
+
+.disabled {
+    display: none;
+}
+
+.pagination__item {
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.pagination__link {
+    color: #666666;
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.pagination__previous:hover,
+.pagination__next:hover,
+.pagination__link:hover {
+    transition: color 0.2s ease;
+    background-color: #fd0100;
+    color: #FFFFFF;
+}
+
+.pagination__link--active {
+    background-color: #fd0100;
+    color: #FFFFFF;
+}
+
+.textHover:hover {
+    color: #fd0100;
+    transition: color 0.2s ease;
+}
+
+.popular {
+    width: 1300px;
+}
+
+@media (max-width: 1300px) {
+    .popular {
+        width: 100%;
+    }
+
+    .popularDiv {
+        width: 90%;
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .popular {
+        gap: 20px;
+    }
+
+    .popularDiv {
+        width: 90%;
+        padding: 40px 0;
+    }
+    .custom-button-prev, .custom-button-prev2, .custom-button-prev3,
+    .custom-button-next, .custom-button-next2, .custom-button-next3  {
+        display: none!important;
+    }
+}
+
+@media (max-width: 480px) {
+    .popularDiv {
+        width: 90%;
+        padding: 40px 0;
+    }
+}
+
+.custom-button-prev, .custom-button-prev2, .custom-button-prev3,
+.custom-button-next, .custom-button-next2, .custom-button-next3 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Закругленные углы */
+    width: 40px; /* Ширина кнопок */
+    height: 40px; /* Высота кнопок */
+    cursor: pointer; /* Указатель при наведении */
+    z-index: 10; /* Убедитесь, что они над слайдами */
+    font-size: 48px; /* Размер текста стрелок */
+    color: #fd0100; /* Цвет текста стрелок */
+}
+
+.custom-button-prev,
+.custom-button-prev2 {
+    right: 100%;
+}
+
+.custom-button-next,
+.custom-button-next2 {
+    left: 100%;
+}
+
+.custom-button-prev3 {
+    right: 72%;
+}
+
+.custom-button-next3{
+    left: 85%;
+}
+
+.custom-button-prev:hover, .custom-button-prev2:hover, .custom-button-next:hover, .custom-button-next2:hover {
+    background-color: rgba(255, 255, 255, 1); /* Цвет фона при наведении */
+}
+
+
+.certificate-image {
+    background-color: #f4f4f4;
+    padding: 15px;
+    width: 100%;
+    height: 200px; /* Задаем фиксированную высоту */
+    object-fit: fill; /* Масштабируем изображение, чтобы оно заполнило контейнер, сохраняя пропорции */
+}
+
+/* Пример использования Tailwind CSS */
+.aspect-w-1 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* Соотношение 1:1 */
+}
+
+.aspect-w-4 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Соотношение 4:3 */
+}
+
+.aspect-w-16 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Соотношение 16:9 */
+}
+
+.object-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Обеспечивает полное покрытие контейнера */
+}
+
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333333; /* Use a darker shade or different color for the scrollbar handle */
+    border-radius: 6px;
+}
+
+.bgColorArticle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*height: 25%;*/
+    background-color: #333333;
+    z-index: -1; /* Ensure it doesn't cover the content */
+}
+
+/* slider */
+
+
+
+
+
