@@ -7,8 +7,8 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Error404 from "./components/pages/shared/Error";
 import CoursePage from "./components/pages/courses/[id]";
-import Courses from "./components/pages/courses/Courses";
-import EventsPage from "./components/pages/events/[id]";
+import EventsPage from './components/pages/events/[id]';
+import Events from './components/pages/events/Events';
 import Bio from "./components/pages/shared/home/Bio";
 
 // import ComingSoonPage from "./components/pages/coming/ComingSoonPage";
@@ -20,17 +20,14 @@ function App() {
         window.scrollTo(0, 0);
     }, [pathname]);
     return (
-        // <Routes>
-        //     <Route  path="*" element={<ComingSoonPage />} />
-        // </Routes>
         <div className="App">
             <PageUpButton/>
             <Header/>
             <Routes>
                 <Route path="/bio" element={<Bio/>}/>
-                <Route path="/events/:id" element={<EventsPage/>}/>
-                <Route path="/courses/:id" element={<CoursePage/>}/>
-                <Route path="/course-category/:id" element={<Courses/>}/>
+                <Route path="/events/:tab/:id" element={<EventsPage />} />
+                <Route path="/events/:tab" element={<Events />} />
+                <Route path="/course-category/:id" element={<CoursePage />}/>
                 {routesArray.map(route => (
                     <Route
                         key={route.id}

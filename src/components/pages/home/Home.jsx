@@ -1,24 +1,19 @@
-import React, {useLayoutEffect, useState, memo, useRef, useContext} from "react";
+import React, {useLayoutEffect, useState, useRef, useContext} from "react";
 import MainPhoto from "./MainPhoto";
 import LessonInfo from "../shared/home/LessonInfo";
-import Event from "../events/Event";
+import Event from '../shared/event/Event';
 import Course from "../shared/home/Course";
 import Certificate from "../certificate/Certificate";
-import Cooperating from "../shared/home/Cooperating";
-import testimonialsArray from "../../../entities/testimonialsArray";
 import lessonInfoArray from "../../../entities/lessonInfoArray";
-import Testimonials from "../shared/testimonials/Testimonials";
-import Slider from "react-slick";
 import {A11y, Navigation} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
-import 'swiper/css';
-import 'swiper/css/navigation'; // Если используете навигацию
-import 'swiper/css/pagination';
 import {DataContext} from "../context/DataProvider";
 import {useNavigate} from "react-router-dom"; // Если используете пагинацию
 
-// const MemoizedEvent = memo(Event);
-const MemoizedTestimonials = memo(Testimonials);
+import 'swiper/css';
+import 'swiper/css/navigation'; // Если используете навигацию
+import 'swiper/css/pagination';
+
 
 export default function Home() {
     const {courses, certificate, events} = useContext(DataContext); // Use context
@@ -28,7 +23,10 @@ export default function Home() {
     const handleCategoryClick = () => {
         nav(`/bio`);
     };
-    // Adjust slider display based on screen width
+    const handleEventsClick = () => {
+        nav(`/events`);
+    };
+
     useLayoutEffect(() => {
         function updateSlidesToShow() {
             const screenWidth = window.innerWidth;
@@ -58,7 +56,7 @@ export default function Home() {
                             <button
                                 onClick={() => nav(`/contacts`)}
                                 className="text-2xl font-roboto-slab-sans font-bold text-center p-5self-center w-[100%] py-[10px] px-[10px] text-white rounded-[4px] uppercase bg-primary">
-                                    Registration Now
+                                Registration Now
                             </button>
                         </div>
                     </div>
@@ -79,7 +77,7 @@ export default function Home() {
                     </p>
                     <img
                         src="/images/Image20241122131907.png"
-                        alt="Founder John Doe" width="220px" loading="lazy"/>
+                        alt="Founder John Doe" width={"220"} loading="lazy"/>
                 </div>
             </div>
 
@@ -101,7 +99,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="popular flex items-center relative">
-                        <div className="custom-button-prev" onClick={() => swiperRef.current.slidePrev()}>
+                        <div className="custom-button-prev select-none" onClick={() => swiperRef.current.slidePrev()}>
                             &lt;
                         </div>
                         <Swiper
@@ -119,7 +117,7 @@ export default function Home() {
                             }}
 
                         >
-                            {courses.map(({image, id, name}, index) => (
+                            {courses.map(({image, id, name}) => (
                                 <SwiperSlide
                                     key={id}
                                     style={{
@@ -131,7 +129,7 @@ export default function Home() {
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                        <div className="custom-button-next" onClick={() => swiperRef.current.slideNext()}>
+                        <div className="custom-button-next select-none" onClick={() => swiperRef.current.slideNext()}>
                             &gt;
                         </div>
                     </div>
@@ -152,27 +150,51 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="text-start pt-20 px-5 flex justify-center">
-                <div
-                    className="mid:max-w-[1300px] w-full mid:mx-auto gap-5 grid mid:grid-cols-2 grid-cols-1 justify-between">
-                    <div className="flex justify-between flex-col bg-colorF2 px-10 py-7 w-full">
-                        <h1 className="text-custom-28 font-roboto-slab font-bold text-color12 pb-5">Events</h1>
-                        {events.slice(0, 3).map(({id, day, month, title, hour, place, description, image}) => (
-                            <Event key={id} id={id} day={day} month={month} title={title} hour={hour}
-                                   place={place} description={description} image={image}/>
-                        ))}
+            {/*<div className="text-start py-20 px-5 flex justify-center">*/}
+            {/*    <div*/}
+            {/*        className="mid:max-w-[1300px] w-full mid:mx-auto gap-5*/}
+            {/*        grid-cols-1 justify-between">*/}
+            {/*        <div className="flex justify-between flex-col bg-colorF2 px-10 py-7 w-full">*/}
+            {/*            <h1 className="text-custom-28 font-roboto-slab font-bold text-color12 pb-5">Events</h1>*/}
+            {/*            {events.slice(0, 3).map(({id, day, month, title, hour, place, description, image}) => (*/}
+            {/*                <Event key={id} id={id} day={day} month={month} title={title} hour={hour}*/}
+            {/*                       place={place} description={description} image={image}/>*/}
+            {/*            ))}*/}
+            {/*        </div>*/}
+            {/*        <div className="flex flex-col bg-colorF2 px-10 py-7 w-full">*/}
+            {/*            <h1 className="text-3xl font-roboto-slab font-bold text-color12">Our Testimonials</h1>*/}
+            {/*            <Slider slidesToShow={1} autoplay={true}>*/}
+            {/*                {testimonialsArray.map(({id, name, comment, image}) => (*/}
+            {/*                    <MemoizedTestimonials key={id} id={id} name={name} comment={comment} image={image}/>*/}
+            {/*                ))}*/}
+            {/*            </Slider>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div className="text-start pt-20  flex justify-center">
+                <div className='popularDiv max-w-[1300px] px-10 lg:px-0 '>
+                    <div className="flex justify-between">
+                        <h1 className="text-custom-28 font-roboto-slab font-bold text-primaryDark">
+                            Events
+                        </h1>
+                        <button
+                            className="text-sm uppercase font-light border-2 py-[7px] px-[20px] h-[50%] rounded-[4px]"
+                            onClick={() => handleEventsClick()}>
+                            View All
+                        </button>
                     </div>
-                    <div className="flex flex-col bg-colorF2 px-10 py-7 w-full">
-                        <h1 className="text-3xl font-roboto-slab font-bold text-color12">Our Testimonials</h1>
-                        <Slider slidesToShow={1} autoplay={true}>
-                            {testimonialsArray.map(({id, name, comment, image}) => (
-                                <MemoizedTestimonials key={id} id={id} name={name} comment={comment} image={image}/>
-                            ))}
-                        </Slider>
-                    </div>
+                    {
+                        events.filter(event => event.status === "completed")
+                            .slice(0, 3).map((pickedEvent) => (
+                            <Event
+                                key={pickedEvent.id}
+                                pickedEvent={pickedEvent}
+                            />
+                        ))
+                    }
                 </div>
             </div>
-            <Cooperating/>
         </main>
     );
 }

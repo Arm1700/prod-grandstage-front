@@ -4,6 +4,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                zelle:'#6c1cd3',
                 primary: '#fd0100',
                 secondary: '#2a4856',
                 pseudo: '#ffffff',

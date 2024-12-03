@@ -36,14 +36,29 @@ export const formValue = {
         required: true
     }, {
         name: "minorName", label: "Name of Minor", type: "text", placeholder: "Name of Minor", required: true
-    }, {name: "minorAge", label: "Age of Minor", type: "number", placeholder: "Age of Minor", required: true}, {
+    }, {
+        name: "minorAge", label: "Age of Minor", type: "number", placeholder: "Age of Minor", required: true
+    }, {
         name: "signature",
         label: "Signature of Parent/Guardian/Registrant",
         type: "text",
         placeholder: "Signature",
         required: true
-    }, {name: "date", label: "Date", type: "date", placeholder: "Date", required: true}],
-    check: {
+    }, {
+        name: "date", label: "Date", type: "date", placeholder: "Date", required: true
+    }, {
+        name: "Zelle",
+        label: "Pay with Zelle",
+        type: "text",
+        placeholder: "Pay with Zelle",
+        value: '747-236-888',
+        disabled: true,
+        required: false,
+        bold:'font-bold',
+        bgColor:'bg-zelle',
+        color:'text-white',
+        size:'text-xl'
+    }], check: {
         name: "policies",
         label: "Policy Acceptance (please initial)",
         type: "checkbox",

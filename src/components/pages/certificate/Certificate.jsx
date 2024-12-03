@@ -52,7 +52,7 @@ export default function Certificate({ slidesToShow }) {
     return (
         <div className='flex justify-between items-center relative'>
             {/* Кастомные стрелки */}
-            <div className="custom-button-prev2" onClick={() => swiperRef2.current?.slidePrev()}>
+            <div className="custom-button-prev2 select-none" onClick={() => swiperRef2.current?.slidePrev()}>
                 &lt; {/* Левый символ */}
             </div>
             <Swiper
@@ -99,7 +99,7 @@ export default function Certificate({ slidesToShow }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="custom-button-next2" onClick={() => swiperRef2.current?.slideNext()}>
+            <div className="custom-button-next2 select-none" onClick={() => swiperRef2.current?.slideNext()}>
                 &gt; {/* Правый символ */}
             </div>
             {isModalOpen && (
@@ -127,7 +127,7 @@ export default function Certificate({ slidesToShow }) {
                         >
                             {certificate.map(({id, img}) => (
                                 <SwiperSlide key={id}>
-                                    <div className="flex justify-center items-center h-[80vh]">
+                                    <div className="flex justify-center items-center h-[80vh] select-none">
                                         <img src={img} alt={`Certificate ${id}`}
                                              className="max-w-full max-h-full object-contain"/>
                                     </div>

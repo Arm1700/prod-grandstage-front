@@ -32,8 +32,8 @@ export default function Course({
             <div
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => nav(`/courses/${id}`)}
-                className={`relative bg-no-repeat bg-cover cursor-pointer ${gridStyleTF === true ? "w-[100%]" : "sm:w-[400px] w-full"}`}
+                onClick={() => nav(`/course-category/${id}`)}
+                className={`relative select-none bg-no-repeat bg-cover cursor-pointer ${gridStyleTF === true ? "w-[100%]" : "sm:w-[400px] w-full"}`}
                 style={{
                     backgroundImage: isHovered
                         ? `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${image})`

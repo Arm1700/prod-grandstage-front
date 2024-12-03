@@ -4,6 +4,7 @@ import Input from "../shared/contact/Input";
 import Button from "../shared/contact/Button";
 import Notification from "../shared/contact/Notification";
 import {formValue} from "../../../entities/formValue"
+import {postData} from "../contacts/api/fetchMessage";
 
 export default function RegisterForm() {
     const {register, handleSubmit, reset, formState: {errors}} = useForm();
@@ -15,17 +16,29 @@ export default function RegisterForm() {
         setTimeout(() => setShowNotify(false), 3000);
     };
 
-    const onSubmit = async (data) => {
-        console.log(data);
+    const onSubmit = async data => {
         try {
-            triggerNotification();
-            setStatus({status: "success", message: "Registration successful"});
-            reset();
+            const response = await postData(data)
+
+            triggerNotification()
+            setStatus({
+                status: 'success',
+                message: 'Message was sent successfully',
+            })
+
+            reset()
+            console.log('Data posted successfully:', response)
         } catch (error) {
-            triggerNotification();
-            setStatus({status: "error", message: "Error during submission"});
+            reset()
+            triggerNotification()
+            setStatus({
+                status: 'error',
+                message: error.message,
+            })
+            console.error('Error occurred while posting context:', error)
         }
-    };
+    }
+
 
     return (
         <div>
@@ -48,6 +61,12 @@ export default function RegisterForm() {
                             type={field.type}
                             placeholder={field.placeholder}
                             name={field.name}
+                            value={field.value}
+                            disabled={field.disabled}
+                            bg={field.bgColor}
+                            bold={field.bold}
+                            color={field.color}
+                            size={field.size}
                             {...register(field.name, {
                                 required: field.required ? `${field.label} is required` : false,
                                 pattern: field.pattern
@@ -56,7 +75,6 @@ export default function RegisterForm() {
                         />
                     </div>
                 ))}
-
                 {/* Политики и отказ от ответственности */}
                 <div className="col-span-full space-y-2">
                     <p className="font-bold">{formValue.check.label}</p>
@@ -66,7 +84,7 @@ export default function RegisterForm() {
                                 <input
                                     type={formValue.check.type}
                                     id={`policy${index}`}
-                                    {...register(`policy${index}`, {required: "Please accept this policy"})}
+                                    {...register(`policies.${index}`, {required: "You must accept this policy"})}
                                     className="mr-2"
                                 />
                                 <label htmlFor={`policy${index}`} className="text-sm">

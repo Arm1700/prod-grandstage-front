@@ -4,7 +4,7 @@ import Courses from '../components/pages/courses/Courses'
 import Events from '../components/pages/events/Events'
 import Home from '../components/pages/home/Home'
 import Certificates from "../components/pages/certificate/Certificates";
-import AboutUs from "../components/pages/courses/[id]";
+import AboutUs from "../components/pages/about/AboutUs";
 
 export const routesArray = [
   {
@@ -17,7 +17,7 @@ export const routesArray = [
     id: 7,
     name: 'ABOUT US',
     component: AboutUs,
-    path: '/about-use',
+    path: '/about-us',
   },
   {
     id: 2,
