@@ -64,7 +64,7 @@ export default function Home() {
             </div>
             <div className="cursor-pointer flex flex-col lg:flex-row items-start justify-center p-20 gap-20"
                  onClick={handleCategoryClick}>
-                <img src={'/images/Picture1.jpg'} alt="Academy Founder" loading="lazy"/>
+                <img src={'/images/Picture1.jpg'} alt="Academy Founder"/>
                 <div className="flex flex-col justify-center gap-10 lg:w-[30%] w-full">
                     <p className="text-custom-28 text-color12 font-bold">
                         Hey there, my name is Varduhi Alexanyan. I am the founder of Grand Educational Center.
@@ -77,7 +77,7 @@ export default function Home() {
                     </p>
                     <img
                         src="/images/Image20241122131907.png"
-                        alt="Founder John Doe" width={"220"} loading="lazy"/>
+                        alt="Founder John Doe" width={"220"}/>
                 </div>
             </div>
 

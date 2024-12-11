@@ -2,14 +2,17 @@ import {Link, useLocation} from 'react-router-dom';
 import {routesArray} from '../../entities/routesArray';
 import {FiMenu, FiX} from 'react-icons/fi';
 import Logo from '../pages/shared/Logo'
+import {useContext} from "react";
+import {DataContext} from "../pages/context/DataProvider";
 
 export default function Menu({showMenu, toggleMenu}) {
     const {pathname} = useLocation();
+    const {loading } = useContext(DataContext);
 
     return (<nav
         className="flex items-center justify-between text-secondary xs:px-5 max-w-[1300px] mx-auto py-3">
         <span className="font-semibold text-xl tracking-tight">
-          <Logo/>
+          <Logo loading={loading}/>
         </span>
         <div className="lg:hidden">
             <button onClick={toggleMenu}>

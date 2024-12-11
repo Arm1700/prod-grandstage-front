@@ -13,8 +13,7 @@ export default function MainPhoto() {
                 poster={'/images/DSC07939.jpg'}
             >
                 <source src={'/DSC07939.jpg'} type="video/mp4"/>
-            </video>DSC07939.jpg)
-
+            </video>
         </section>
     );
 }

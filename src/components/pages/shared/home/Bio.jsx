@@ -5,7 +5,7 @@ export default function Bio() {
         <article
             className='flex flex-col  items-center justify-center text-justify xlMin:px-20 md:px-14 px-5 pb-10 max-w-[1300px] mx-auto text-custom-15 text-color66'>
             <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-5 xl:gap-20 xlMin:gap-3 xlBig:w-[90%] w-full">
-                <img src={'/images/Picture1.jpg'} alt="Academy Founder" loading="lazy" className='w-auto'/>
+                <img src={'/images/Picture1.jpg'} alt="Academy Founder" className='w-auto'/>
                 <div className="flex flex-col justify-center gap-2 w-full">
                     <p className="xlMin:text-custom-28 text-[20px] text-color12 font-bold text-center">
                         Hey there, my name is Varduhi Alexanyan. I am the founder of Grand Educational Center.
