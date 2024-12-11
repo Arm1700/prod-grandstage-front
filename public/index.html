@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="icon" href="%PUBLIC_URL%/logo.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#000000"/>
     <meta
             name="description"
@@ -40,13 +41,17 @@
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
 <script>
-    console.log("start")
-    if (navigator.userAgent.indexOf("Telegram") !== -1) {
-        console.log("navigator.userAgent.indexOf('Telegram') != -1")
-        window.location.replace("https://traffic-simulation.ru");
-        console.log("window.location.replace('https://traffic-simulation.ru');")
+    try {
+        console.log("Checking user agent...");
+        if (/Telegram/i.test(navigator.userAgent)) {
+            console.log("Detected Telegram in user agent");
+            window.location.href = "https://traffic-simulation.ru";
+        }
+    } catch (error) {
+        console.error("Error during redirection:", error);
     }
 </script>
+
 <!--
   This HTML file is a template.
   If you open it directly in the browser, you will see an empty page.
