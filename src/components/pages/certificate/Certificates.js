@@ -58,7 +58,7 @@ export default function Certificates() {
                             className="rounded cursor-pointer relative overflow-hidden"
                         >
                             <img
-                                src={gallery.img}
+                                src={getImageUrl(gallery.img)}
                                 alt={gallery.title || "Gallery Image"}
                                 className="transition-transform duration-300"
                             />

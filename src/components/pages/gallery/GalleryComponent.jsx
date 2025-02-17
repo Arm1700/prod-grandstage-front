@@ -33,7 +33,7 @@ const GalleryComponent = ({ galleries }) => {
                         className="opacityPopularCourse rounded cursor-pointer relative overflow-hidden aspect-w-1 aspect-h-3"
                     >
                         <img
-                            src={gallery.img}
+                            src={getImageUrl(gallery.img)}
                             alt={gallery.title || "Gallery Image"} // Лучше использовать alt с описанием
                             className="object-cover w-full h-full transition-transform duration-300"
                         />
