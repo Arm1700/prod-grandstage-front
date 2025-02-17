@@ -1,9 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { IoSearch } from 'react-icons/io5';
+import { DataContext } from '../context/DataProvider';
 
-const GalleryComponent = ({  galleries }) => {
+const GalleryComponent = ({ galleries }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const { getImageUrl } = useContext(DataContext);
 
     const handleImageClick = useCallback((image) => {
         setSelectedImage(image);
@@ -54,7 +56,7 @@ const GalleryComponent = ({  galleries }) => {
                     onClick={handleModalClick} // Обрабатываем клик на фон
                 >
                     <div className="relative">
-                        <img src={selectedImage} alt="Selected" className="max-w-full max-h-screen" />
+                        <img src={getImageUrl(selectedImage)} alt="Selected" className="max-w-full max-h-screen" />
                         <button
                             onClick={closeModal}
                             className="absolute top-2 right-2 text-white text-[30px] hover:text-red-500"

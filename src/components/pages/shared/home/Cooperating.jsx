@@ -1,11 +1,12 @@
-import React, {useRef} from 'react';
+import React, {useRef, useContext} from 'react';
 import Slider from 'react-slick';
 import cooperatingArray from "../../../../entities/cooperatingArray";
+import { DataContext } from '../../context/DataProvider';
 
 export default function Cooperating() {
     let sliderRef2 = useRef(null);
-
-    console.log()
+    const { getImageUrl } = useContext(DataContext);
+    
     return (
         <div className="slider-container relative py-7">
             <div>
@@ -35,7 +36,7 @@ export default function Cooperating() {
                         {cooperatingArray.map((review, i) => (
                             <div key={review.id} className="text-center">
                                 <img
-                                    src={review.image}
+                                    src={getImageUrl(review.image)}
 
                                     className={`rounded-full mx-auto p-2 border-color86 `}
                                     style={{

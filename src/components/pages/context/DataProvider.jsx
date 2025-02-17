@@ -1,7 +1,7 @@
     import React, {createContext, useEffect, useState} from "react";
 
     export const DataContext = createContext();
-    export const BASE_URL = "https://grandstage.gekoeducation.com";
+    export const BASE_URL = "https://grandeducationalcenter.com";
     // export const BASE_URL = "http://127.0.0.1:8000";
 
     export const DataProvider = ({children}) => {
@@ -55,10 +55,22 @@
         const getEventById = (id) => {
             return events.find(event => event.id === parseInt(id));
         };
+   
         const getImageUrl = (image) => {
-            if (!image) return "https://eduma.thimpress.com/wp-content/uploads/2022/07/thumnail-cate-7-170x170.png";
-            return image.startsWith("https") ? image : `${BASE_URL}${image}`;
+            if (image && typeof image === 'string') {
+                // Если image уже содержит "http" (локальный или полный URL), убираем локальный хост
+                if (image.startsWith('http://127.0.0.1:8000') || image.startsWith('http://localhost:8000')) {
+                    return BASE_URL + image.replace(/^http:\/\/127.0.0.1:8000|http:\/\/localhost:8000/, '');
+                }
+    
+                // Если image начинается с "/", добавляем BASE_URL
+                return image.startsWith('/') ? `${BASE_URL}${image}` : image;
+            }
+    
+            // Фолбэк-изображение
+            return 'https://eduma.thimpress.com/wp-content/uploads/2022/07/thumnail-cate-7-170x170.png';
         };
+    
         return (
             <DataContext.Provider value={{
                 courses,

@@ -84,7 +84,7 @@ export default function Event({pickedEvent}) {
                             </SwiperSlide>
                         ))
                     ) : (
-                        <img alt={"image " + t(pickedEvent.description)} src={pickedEvent.image}
+                        <img alt={"image " + t(pickedEvent.description)} src={getImageUrl(pickedEvent.image)}
                              className="rounded-md w-full"/>
                     )}
                 </Swiper>

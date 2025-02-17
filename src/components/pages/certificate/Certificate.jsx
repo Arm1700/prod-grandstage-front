@@ -9,7 +9,7 @@ import { DataContext } from "../context/DataProvider";
 export default function Certificate({ slidesToShow }) {
     const swiperRef2 = useRef(null);
     const swiperRef3 = useRef(null);
-    const { certificate } = useContext(DataContext); // Используем контекст
+    const { certificate, getImageUrl } = useContext(DataContext); // Используем контекст
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -86,7 +86,7 @@ export default function Certificate({ slidesToShow }) {
                             }}
                         >
                             <img
-                                src={img}
+                                src={getImageUrl(img)}
                                 alt={`Certificate ${id}`}
                                 className="certificate-image max-w-full max-h-[200px] object-contain mx-auto"
                                 style={{
@@ -128,7 +128,7 @@ export default function Certificate({ slidesToShow }) {
                             {certificate.map(({id, img}) => (
                                 <SwiperSlide key={id}>
                                     <div className="flex justify-center items-center h-[80vh] select-none">
-                                        <img src={img} alt={`Certificate ${id}`}
+                                        <img src={getImageUrl(img)} alt={`Certificate ${id}`}
                                              className="max-w-full max-h-full object-contain"/>
                                     </div>
                                 </SwiperSlide>

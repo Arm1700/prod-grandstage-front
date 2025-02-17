@@ -5,7 +5,7 @@ import {coursesArray} from "../../../../../entities/coursesArray";
 
 export default function CourseCategoryPage() {
   const { id: category } = useParams()
-  console.log(category)
+  
   const pickedCourse =
     coursesArray?.find(el => el.id === +category)
   return (

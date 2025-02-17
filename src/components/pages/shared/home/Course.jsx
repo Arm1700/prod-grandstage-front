@@ -1,6 +1,7 @@
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DataContext } from '../../context/DataProvider';
 
 export default function Course({
                                           gridStyleTF = true,
@@ -12,7 +13,8 @@ export default function Course({
     const nav = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-
+    const { getImageUrl } = useContext(DataContext);
+    
     useEffect(() => {
         setIsMounted(true);
     }, []);
@@ -36,8 +38,8 @@ export default function Course({
                 className={`relative select-none bg-no-repeat bg-cover cursor-pointer ${gridStyleTF === true ? "w-[100%]" : "sm:w-[400px] w-full"}`}
                 style={{
                     backgroundImage: isHovered
-                        ? `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${image})`
-                        : `url(${image})`,
+                        ? `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${getImageUrl(image)})`
+                        : `url(${getImageUrl(image)})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center', // Центрирует изображение
                     width: '100%', // Полная ширина контейнера

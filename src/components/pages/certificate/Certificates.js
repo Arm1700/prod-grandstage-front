@@ -9,7 +9,7 @@ export default function Certificates() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-    const { certificate } = useContext(DataContext); // Используем контекст
+    const { certificate, getImageUrl } = useContext(DataContext); // Используем контекст
 
 
     const handleImageClick = (index) => {
@@ -101,7 +101,7 @@ export default function Certificates() {
                                 {certificate.map(({id, img}) => (
                                     <SwiperSlide key={id}>
                                         <div className="flex justify-center items-center h-[80vh]">
-                                            <img src={img} alt={`Certificate ${id}`}
+                                            <img src={getImageUrl(img)} alt={`Certificate ${id}`}
                                                  className="max-w-full max-h-full object-contain"/>
                                         </div>
                                     </SwiperSlide>

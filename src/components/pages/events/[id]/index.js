@@ -9,7 +9,7 @@ import {DataContext} from "../../context/DataProvider";
 export default function EventsPage() {
     const {id: eventId,} = useParams()
     const nav = useNavigate();
-    const {events} = useContext(DataContext); // Use context
+    const {events, getImageUrl} = useContext(DataContext); // Use context
 
 
     const pickedEvent =
@@ -22,7 +22,7 @@ export default function EventsPage() {
                         <div className="flex flex-col gap-[20px] px-5">
                             <p className="text-5xl text-color12 font-roboto-slab font-bold">Events</p>
                             <p className="text-2xl font-bold text-color12 font-roboto-slab">{pickedEvent.title}</p>
-                            <img src={pickedEvent.image} alt=""/>
+                            <img src={getImageUrl(pickedEvent.image)} alt=""/>
                         </div>
 
                         <div

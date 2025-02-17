@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Modal from 'react-modal';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { DataContext } from '../../context/DataProvider';
 
 
 const ImageSliderModal = ({ images }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const { getImageUrl } = useContext(DataContext);
 
     const openModal = (index) => {
         setCurrentImageIndex(index);
@@ -32,7 +34,7 @@ const ImageSliderModal = ({ images }) => {
                 {images.map((image, index) => (
                     <img
                         key={index}
-                        src={image}
+                        src={getImageUrl(image)}
                         alt={`Slide ${index}`}
                         onClick={() => openModal(index)}
                         style={{ cursor: 'pointer', width: '100px', height: '100px' }}
@@ -59,7 +61,7 @@ const ImageSliderModal = ({ images }) => {
                 <Slider {...settings}>
                     {images.map((image, index) => (
                         <div key={index}>
-                            <img src={image} alt={`Slide ${index}`} style={{ width: '100%' }} />
+                            <img src={getImageUrl(image)} alt={`Slide ${index}`} style={{ width: '100%' }} />
                         </div>
                     ))}
                 </Slider>

@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import reviewsArray from '../../../../../../geko-front/src/entities/reviewsArray';
 import Slider from 'react-slick';
+import { DataContext } from '../../context/DataProvider';
 
 export default function Review() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,6 +9,7 @@ export default function Review() {
     const [nav2, setNav2] = useState(null);
     let sliderRef1 = useRef(null);
     let sliderRef2 = useRef(null);
+    const { getImageUrl } = useContext(DataContext);
 
     useEffect(() => {
         setNav1(sliderRef1.current);
@@ -18,7 +20,6 @@ export default function Review() {
         setCurrentIndex(index);
     };
 
-    console.log()
     return (
         <div className="slider-container relative">
             <div>
@@ -47,8 +48,7 @@ export default function Review() {
                         {reviewsArray.map((review, i) => (
                             <div key={review.id} className="text-center">
                                 <img
-                                    src={review.image}
-
+                                    src={getImageUrl(review.image)}
                                     className={`rounded-full mx-auto p-2 border-color86 `}
                                     style={{
                                         border: i === currentIndex ? "2px rgba(0, 0, 0, 0.5)" : "none",

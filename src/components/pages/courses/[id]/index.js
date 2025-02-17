@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 const CourseCategory = () => {
     const nav = useNavigate();
     const { id: courseId } = useParams();
-    const { getCoursesById, loading } = useContext(DataContext);
+    const { getCoursesById, loading, getImageUrl } = useContext(DataContext);
     const swiperRef = useRef(null);
 
     const course = getCoursesById(courseId);
@@ -108,7 +108,7 @@ const CourseCategory = () => {
                                 >
                                     <div>
                                         <img
-                                            src={img}
+                                            src={getImageUrl(img)}
                                             alt="About Us"
                                             className="rounded-lg shadow-lg"
                                             style={{
