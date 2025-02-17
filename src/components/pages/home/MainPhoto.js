@@ -12,7 +12,7 @@ export default function MainPhoto() {
                 className="lg:absolute top-0 left-0 min-w-full lg:h-full object-cover pointer-events-none"
                 poster={'/images/DSC07939.jpg'}
             >
-                <source src={'/DSC07939.jpg'} type="video/mp4"/>
+                <source src={'/images/DSC07939.jpg'} type="video/mp4"/>
             </video>
         </section>
     );
