@@ -78,7 +78,7 @@ export default function Home() {
                         As a teenager Varduhi revealed her passion and talent for
                         ballroom dance concentrating exclusively on dancing, competing
                         in local and international championships and making a
-                        career of professional dancer and trainer. <span className="text-primary" onClick={handleCategoryClick}>read more</span>
+                        career of professional dancer and trainer. <span className="text-primary" onClick={handleCategoryClick}>Read more</span>
                     </p>
                     <img
                         src="/images/Image20241122131907.png"

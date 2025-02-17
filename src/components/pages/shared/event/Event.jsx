@@ -1,16 +1,16 @@
-import React, {useContext, useState} from 'react';
-import {MdOutlinePlace} from 'react-icons/md';
-import {TbClockHour3} from 'react-icons/tb';
-import {useNavigate} from "react-router-dom";
-import {useTranslation} from 'react-i18next';
-import {A11y, Autoplay} from "swiper/modules";
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {DataContext} from "../../context/DataProvider";
+import React, { useContext, useState } from 'react';
+import { MdOutlinePlace } from 'react-icons/md';
+import { TbClockHour3 } from 'react-icons/tb';
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import { A11y, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { DataContext } from "../../context/DataProvider";
 
-export default function Event({pickedEvent}) {
+export default function Event({ pickedEvent }) {
     const nav = useNavigate();
-    const {t} = useTranslation();
-    const {getImageUrl} = useContext(DataContext);
+    const { t } = useTranslation();
+    const { getImageUrl } = useContext(DataContext);
 
     const handleCategoryClick = (id) => {
         nav(`/events/${pickedEvent.status}/${id}`);
@@ -56,13 +56,17 @@ export default function Event({pickedEvent}) {
                 <h5 className="text-lg font-bold hover:text-primary transition-colors duration-300 cursor-pointer"
                     onClick={() => handleCategoryClick(pickedEvent.id)}
                 >{t(pickedEvent.title)}</h5>
-                <div className="flex gap-1 items-center">
-                    <TbClockHour3 className="text-primary w-[21px]"/> <span
-                    className="text-sm">{`${day}/${month}/${year}`}</span>
-                    <MdOutlinePlace className="text-primary"/> <span
-                    className="text-sm">{t(pickedEvent.place)}</span>
+                <div className="flex flex-wrap gap-3">
+                    <div className="flex gap-1 justify-center items-center">
+                        <TbClockHour3 className="text-primary w-[20px]" /> <span
+                            className="text-sm">{`${day}/${month}/${year}`}</span>
+                    </div>
+                    <div className="flex gap-1 justify-center items-center">
+                        <MdOutlinePlace className="text-primary w-[20px]" /> <span
+                            className="text-sm">{t(pickedEvent.place)}</span>
+                    </div>
                 </div>
-                <p className=" text-primaryDark text-custom-15 center">{t(pickedEvent.description)}</p>
+                <p className="min-w-[500px] text-primaryDark text-custom-15 center">{t(pickedEvent.description)}</p>
             </div>
 
             <div className='w-full md:w-[30%] sm:w-[40%]'>
@@ -77,15 +81,15 @@ export default function Event({pickedEvent}) {
 
                 >
                     {pickedEvent.event_galleries && pickedEvent.event_galleries.length > 0 ? (
-                        pickedEvent.event_galleries.map(({image, id}) => (
+                        pickedEvent.event_galleries.map(({ image, id }) => (
                             <SwiperSlide key={id}>
                                 <img alt={"image " + t(pickedEvent.description)} src={getImageUrl(image)}
-                                     className="rounded-md w-full"/>
+                                    className="rounded-md w-full" />
                             </SwiperSlide>
                         ))
                     ) : (
                         <img alt={"image " + t(pickedEvent.description)} src={getImageUrl(pickedEvent.image)}
-                             className="rounded-md w-full"/>
+                            className="rounded-md w-full" />
                     )}
                 </Swiper>
             </div>
