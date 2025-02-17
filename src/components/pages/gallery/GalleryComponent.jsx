@@ -53,7 +53,7 @@ const GalleryComponent = ({ galleries }) => {
             {isModalOpen && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
-                    onClick={handleModalClick} // Обрабатываем клик на фон
+                    onClick={handleModalClick}
                 >
                     <div className="relative">
                         <img src={getImageUrl(selectedImage)} alt="Selected" className="max-w-full max-h-screen" />

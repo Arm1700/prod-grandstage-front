@@ -1,14 +1,14 @@
-import React, {useLayoutEffect, useState, useRef, useContext} from "react";
+import React, { useLayoutEffect, useState, useRef, useContext } from "react";
 import MainPhoto from "./MainPhoto";
 import LessonInfo from "../shared/home/LessonInfo";
 import Event from '../shared/event/Event';
 import Course from "../shared/home/Course";
 import Certificate from "../certificate/Certificate";
 import lessonInfoArray from "../../../entities/lessonInfoArray";
-import {A11y, Navigation} from "swiper/modules";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {DataContext} from "../context/DataProvider";
-import {useNavigate} from "react-router-dom"; // Если используете пагинацию
+import { A11y, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { DataContext } from "../context/DataProvider";
+import { useNavigate } from "react-router-dom"; // Если используете пагинацию
 
 import 'swiper/css';
 import 'swiper/css/navigation'; // Если используете навигацию
@@ -16,7 +16,7 @@ import 'swiper/css/pagination';
 
 
 export default function Home() {
-    const {courses, certificate, events} = useContext(DataContext); // Use context
+    const { courses, certificate, events } = useContext(DataContext); // Use context
     const swiperRef = useRef(null);
     const [slidesToShow, setSlidesToShow] = useState(4);
     const nav = useNavigate();
@@ -45,7 +45,7 @@ export default function Home() {
         <main>
             <div
                 className='relative lg:flex gap-5 grid grid-rows-[min-content_1fr] lg:justify-end justify-center items-center py-5 lg:px-5 h-[600px]'>
-                <MainPhoto/>
+                <MainPhoto />
                 <div
                     className="relative top-0 mx-auto lg:mx-0 h-auto flex flex-col justify-center items-center z-20 overflow-hidden border-[1px] rounded-[20px]">
                     <div className="absolute w-[100%] h-[100%] bg-primary rounded-full z-10"></div>
@@ -63,29 +63,34 @@ export default function Home() {
                 </div>
             </div>
             <div className="cursor-pointer flex flex-col lg:flex-row items-start justify-center p-20 gap-20"
-                 onClick={handleCategoryClick}>
-                <img src={'/images/Picture1.jpg'} alt="Academy Founder"/>
+                onClick={handleCategoryClick}>
+                <img src={'/images/Picture1.jpg'} alt="Academy Founder" />
                 <div className="flex flex-col justify-center gap-10 lg:w-[30%] w-full">
-                    <p className="text-custom-28 text-color12 font-bold">
+                    <p className="text-custom-28 text-color12 font-bold text-justify">
                         Hey there, my name is Varduhi Alexanyan. I am the founder of Grand Educational Center.
                     </p>
-                    <p className="text-custom-15 text-color66">
-                        A wonderful serenity has taken possession of my soul, like these sweet mornings of spring. The
-                        charm of this spot was created for the bliss of souls like mine. I am so happy, my dear friend,
-                        so absorbed. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-                        letters, making it look like readable English.
+                    <p className="text-custom-15 text-color66 text-justify">
+                        Varduhi Aleksanyan is a professional dancer, a highly
+                        qualified trainer, an international judge, a choreographer
+                        and a TV personality. Born in Yerevan, Armenia she began
+                        Latin and Ballroom dance training at the age of 11 at
+                        “Matador Dance Club” under the direction of Gevorg Markosyan.
+                        As a teenager Varduhi revealed her passion and talent for
+                        ballroom dance concentrating exclusively on dancing, competing
+                        in local and international championships and making a
+                        career of professional dancer and trainer. <span className="text-primary" onClick={handleCategoryClick}>read more</span>
                     </p>
                     <img
                         src="/images/Image20241122131907.png"
-                        alt="Founder John Doe" width={"220"}/>
+                        alt="Founder John Doe" width={"220"} />
                 </div>
             </div>
 
             <div className="py-10 bg-colorF2">
                 <div
                     className="bg-cover bg-no-repeat max-w-[1300px] mx-auto flex justify-between flex-row md:flex-row xs:flex-col">
-                    {lessonInfoArray.map(({id, icon, title, desc}) => (
-                        <LessonInfo key={id} Icon={icon} title={title} desc={desc}/>
+                    {lessonInfoArray.map(({ id, icon, title, desc }) => (
+                        <LessonInfo key={id} Icon={icon} title={title} desc={desc} />
                     ))}
                 </div>
             </div>
@@ -117,7 +122,7 @@ export default function Home() {
                             }}
 
                         >
-                            {courses.map(({image, id, name}) => (
+                            {courses.map(({ image, id, name }) => (
                                 <SwiperSlide
                                     key={id}
                                     style={{
@@ -125,7 +130,7 @@ export default function Home() {
                                         justifyContent: "center",
                                     }}
                                 >
-                                    <Course image={image} name={name} id={id}/>
+                                    <Course image={image} name={name} id={id} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -145,7 +150,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="popular">
-                        <Certificate certificate={certificate} slidesToShow={slidesToShow}/>
+                        <Certificate certificate={certificate} slidesToShow={slidesToShow} />
                     </div>
                 </div>
             </div>
@@ -187,11 +192,11 @@ export default function Home() {
                     {
                         events.filter(event => event.status === "completed")
                             .slice(0, 3).map((pickedEvent) => (
-                            <Event
-                                key={pickedEvent.id}
-                                pickedEvent={pickedEvent}
-                            />
-                        ))
+                                <Event
+                                    key={pickedEvent.id}
+                                    pickedEvent={pickedEvent}
+                                />
+                            ))
                     }
                 </div>
             </div>

@@ -1,30 +1,33 @@
-import {Link, useLocation} from 'react-router-dom';
-import {routesArray} from '../../entities/routesArray';
-import {FiMenu, FiX} from 'react-icons/fi';
+import { Link, useLocation } from 'react-router-dom';
+import { routesArray } from '../../entities/routesArray';
+import { FiMenu, FiX } from 'react-icons/fi';
 import Logo from '../pages/shared/Logo'
-import {useContext} from "react";
-import {DataContext} from "../pages/context/DataProvider";
+import { useContext } from "react";
+import { DataContext } from "../pages/context/DataProvider";
 
-export default function Menu({showMenu, toggleMenu}) {
-    const {pathname} = useLocation();
-    const {loading } = useContext(DataContext);
+export default function Menu({ showMenu, toggleMenu }) {
+    const { pathname } = useLocation();
+    const { loading } = useContext(DataContext);
 
     return (<nav
         className="flex items-center justify-between text-secondary xs:px-5 max-w-[1300px] mx-auto py-3">
         <span className="font-semibold text-xl tracking-tight">
-          <Logo loading={loading}/>
+            <Logo loading={loading} />
         </span>
         <div className="lg:hidden">
             <button onClick={toggleMenu}>
-                {showMenu ? (<FiX className="text-secondary" size={30}/>) : (
-                    <FiMenu className="text-secondary" size={30}/>)}
+                {showMenu ? (<FiX className="text-secondary" size={30} />) : (
+                    <FiMenu className="text-secondary" size={30} />)}
             </button>
         </div>
         <div className="flex uppercase hidden lg:block">
             {routesArray.map((route) => (<Link
                 key={route.id}
                 to={route.path}
-                className={`relative group px-3 py-2 rounded-md text-sm font-medium ${pathname === route.path ? 'text-primary' : 'text-color12 hover:text-primary'}`}
+                className={`relative group px-3 py-2 rounded-md text-sm font-medium ${pathname === route.path || (pathname?.startsWith(route?.path) && route?.path !== '/')
+                    ? 'text-primary'
+                    : 'text-secondary hover:text-primary'
+                    }`}
             >
                 {route.name}
                 <span
