@@ -9,7 +9,7 @@ export default function MobileMenu({isOpen, toggleMenu}) {
     return (
         <div
             className={`fixed capitalized bg-pseudo w-[50%] inset-0 z-50 overflow-y-auto transition-transform duration-300 ${
-                isOpen ? 'translate-x-0' : '-translate-x-full'
+                isOpen ? 'translate-x-0' : 'translate-x-[-100%]'
             }`}
         >
             <div className="bg-gray-400 w-full h-[60px] flex items-center justify-between px-5">

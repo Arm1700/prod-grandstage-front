@@ -56,7 +56,7 @@ export default function Home() {
                             <button
                                 onClick={() => nav(`/contacts`)}
                                 className="text-2xl font-roboto-slab-sans font-bold text-center p-5self-center w-[100%] py-[10px] px-[10px] text-white rounded-[4px] uppercase bg-primary">
-                                Registration Now
+                                Register  Now
                             </button>
                         </div>
                     </div>
