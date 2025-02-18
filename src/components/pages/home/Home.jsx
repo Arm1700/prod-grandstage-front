@@ -62,11 +62,10 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="cursor-pointer flex flex-col lg:flex-row items-start justify-center p-20 gap-20"
-                onClick={handleCategoryClick}>
-                <img src={'/images/Picture1.jpg'} alt="Academy Founder" />
-                <div className="flex flex-col justify-center gap-10 lg:w-[30%] w-full">
-                    <p className="text-custom-28 text-color12 font-bold text-justify">
+            <div className={`flex flex-col lg:flex-row items-center justify-center py-10 p-5 gap-10`}>
+                <img src={'/images/Picture1.jpg'} className="cursor-pointer w-[70%] lg:w-auto" alt="Academy Founder" onClick={handleCategoryClick} />
+                <div className="flex flex-col justify-center items-center gap-10 lg:gap-5 lg:w-[30%] w-full">
+                    <p className="text-custom-28 text-color12 font-bold text-center">
                         Hey there, my name is Varduhi Alexanyan. I am the founder of Grand Educational Center.
                     </p>
                     <p className="text-custom-15 text-color66 text-justify">
@@ -78,7 +77,7 @@ export default function Home() {
                         As a teenager Varduhi revealed her passion and talent for
                         ballroom dance concentrating exclusively on dancing, competing
                         in local and international championships and making a
-                        career of professional dancer and trainer. <span className="text-primary" onClick={handleCategoryClick}>Read more</span>
+                        career of professional dancer and trainer. <span className="cursor-pointer text-primary" onClick={handleCategoryClick}>Read more</span>
                     </p>
                     <img
                         src="/images/Image20241122131907.png"
@@ -155,29 +154,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/*<div className="text-start py-20 px-5 flex justify-center">*/}
-            {/*    <div*/}
-            {/*        className="mid:max-w-[1300px] w-full mid:mx-auto gap-5*/}
-            {/*        grid-cols-1 justify-between">*/}
-            {/*        <div className="flex justify-between flex-col bg-colorF2 px-10 py-7 w-full">*/}
-            {/*            <h1 className="text-custom-28 font-roboto-slab font-bold text-color12 pb-5">Events</h1>*/}
-            {/*            {events.slice(0, 3).map(({id, day, month, title, hour, place, description, image}) => (*/}
-            {/*                <Event key={id} id={id} day={day} month={month} title={title} hour={hour}*/}
-            {/*                       place={place} description={description} image={image}/>*/}
-            {/*            ))}*/}
-            {/*        </div>*/}
-            {/*        <div className="flex flex-col bg-colorF2 px-10 py-7 w-full">*/}
-            {/*            <h1 className="text-3xl font-roboto-slab font-bold text-color12">Our Testimonials</h1>*/}
-            {/*            <Slider slidesToShow={1} autoplay={true}>*/}
-            {/*                {testimonialsArray.map(({id, name, comment, image}) => (*/}
-            {/*                    <MemoizedTestimonials key={id} id={id} name={name} comment={comment} image={image}/>*/}
-            {/*                ))}*/}
-            {/*            </Slider>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-
-            <div className="text-start pt-20  flex justify-center">
+            <div className="text-start pt-20 flex justify-center">
                 <div className='popularDiv max-w-[1300px] px-10 lg:px-0 '>
                     <div className="flex justify-between">
                         <h1 className="text-custom-28 font-roboto-slab font-bold text-primaryDark">

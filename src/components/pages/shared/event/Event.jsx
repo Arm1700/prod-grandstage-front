@@ -3,8 +3,6 @@ import { MdOutlinePlace } from 'react-icons/md';
 import { TbClockHour3 } from 'react-icons/tb';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { A11y, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { DataContext } from "../../context/DataProvider";
 
 export default function Event({ pickedEvent }) {
@@ -38,12 +36,12 @@ export default function Event({ pickedEvent }) {
     const year = date.getFullYear(); // Год
     return (
         <section
-            className="border-b-[1px] py-8 border-gray-300 flex gap-5 sm:justify-between sm:items-center sm:flex-row flex-col max:relative"
+            className="border-b-[1px] py-8 border-gray-300 grid mid:grid-cols-[min-content_1fr_1fr] grid-cols-1 gap-5  sm:items-center max:relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
             <div
-                className={`sm:flex hidden  flex-col gap-1 sm:static w-[200px] max:w-[100px] md:mr-10 mr-0 max:bg-white max:text-center max:absolute max:top-[10%] max:left-[3%] ${isMenuVisible ? 'border-color56' : ''}`}
+                className={`mid:flex hidden  flex-col gap-1 sm:static md:mr-10 mr-0 max:bg-white max:text-center max:absolute max:top-[10%] max:left-[3%] ${isMenuVisible ? 'border-color56' : ''}`}
             >
                 <span className="text-primary font-bold text-6xl leading-60">
                     {day}
@@ -52,7 +50,7 @@ export default function Event({ pickedEvent }) {
             </div>
 
             <div
-                className="gap-2 flex middle:px-5 md:px-20 px-0 flex-col sm:order-none max:order-1 sm:max-w-[60%] max-w-full">
+                className="gap-2 flex w-full px-0 flex-col sm:order-none max:order-1 ">
                 <h5 className="text-lg font-bold hover:text-primary transition-colors duration-300 cursor-pointer"
                     onClick={() => handleCategoryClick(pickedEvent.id)}
                 >{t(pickedEvent.title)}</h5>
@@ -66,32 +64,11 @@ export default function Event({ pickedEvent }) {
                             className="text-sm">{t(pickedEvent.place)}</span>
                     </div>
                 </div>
-                <p className="min-w-[500px] text-primaryDark text-custom-15 center">{t(pickedEvent.description)}</p>
+                <p className="w-full text-primaryDark text-custom-15 center">{t(pickedEvent.description)}</p>
             </div>
-
-            <div className='w-full md:w-[30%] sm:w-[40%]'>
-                <Swiper
-                    slidesPerView={1}
-                    loop={pickedEvent.event_galleries.length > 1}
-                    modules={[A11y, Autoplay]}
-                    speed={500}
-                    autoplay={{
-                        delay: 1500,
-                    }}
-
-                >
-                    {pickedEvent.event_galleries && pickedEvent.event_galleries.length > 0 ? (
-                        pickedEvent.event_galleries.map(({ image, id }) => (
-                            <SwiperSlide key={id}>
-                                <img alt={"image " + t(pickedEvent.description)} src={getImageUrl(image)}
-                                    className="rounded-md w-full" />
-                            </SwiperSlide>
-                        ))
-                    ) : (
-                        <img alt={"image " + t(pickedEvent.description)} src={getImageUrl(pickedEvent.image)}
-                            className="rounded-md w-full" />
-                    )}
-                </Swiper>
+            <div className='w-full h-full'>
+                <img alt={"image " + t(pickedEvent.description)} src={getImageUrl(pickedEvent.image)}
+                    className="rounded-md w-full h-full" />
             </div>
         </section>
     );

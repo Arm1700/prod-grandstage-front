@@ -13,41 +13,6 @@
     transition: all 0.5s;
 }
 
-/*.opacityPopularCourse {*/
-/*    position: relative;*/
-/*    overflow: hidden;*/
-/*    max-height: 400px;*/
-/*    transition: transform 0.4s ease-in-out;*/
-/*}*/
-
-/*.opacityPopularCourse img {*/
-/*    width: 100%;*/
-/*    object-fit: cover;*/
-/*    transition: transform 0.4s ease-in-out;*/
-/*}*/
-
-/*.opacityPopularCourse img.translate-y-1-2 {*/
-/*    transform: translateY(50%); !* Сдвигаем изображение вниз на 50% при наведении *!*/
-/*}*/
-
-/*.opacityPopularCourse .hover-content {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 50%; !* Верхняя половина контейнера *!*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    transform: translateY(-100%); !* Скрываем блок за пределами видимости *!*/
-/*    transition: transform 0.5s ease; !* Переход для плавного появления *!*/
-/*}*/
-
-/*.opacityPopularCourse:hover .hover-content {*/
-/*    transform: translateY(0); !* Показываем блок при наведении *!*/
-/*}*/
-
-
 /* Pagination.css */
 
 .pagination {

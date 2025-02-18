@@ -70,7 +70,7 @@ const CourseCategory = () => {
 
     return (
         <section className="bgColorArticle relative pb-5">
-            <article className="grid lg:grid-cols-[50%_50%] lg:grid-rows-[60%_50%] grid-cols-1 max-w-[1200px] mx-auto relative h-[80vh]">
+            <article className="grid lg:grid-cols-[50%_50%]  grid-cols-1 max-w-[1200px] mx-auto relative h-[60%]">
                 {/* Левый блок с текстом */}
                 <div className="flex flex-col relative px-auto text-pseudo items-center justify-center py-10">
                     <div className="flex flex-col gap-[20px] px-5">
@@ -110,7 +110,7 @@ const CourseCategory = () => {
                                         <img
                                             src={getImageUrl(img)}
                                             alt="About Us"
-                                            className="rounded-lg shadow-lg"
+                                            className="rounded-lg shadow-lg" 
                                             style={{
                                                 width: '100%',
                                                 maxWidth: '100%',
