@@ -80,7 +80,7 @@ export default function Certificates() {
                         className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
                         onClick={handleModalClick} // Обрабатываем клик на фон
                     >
-                        <div className="custom-button-prev3" onClick={() => swiperRef4.current?.slidePrev()}>
+                        <div className="custom-button-prev3 transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef4.current?.slidePrev()}>
                             &lt; {/* Левый символ */}
                         </div>
                         <div className="relative w-full h-full max-w-5xl max-h-[90%] flex items-center justify-center">
@@ -107,7 +107,7 @@ export default function Certificates() {
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
-                            <div className="custom-button-next3" onClick={() => swiperRef4.current?.slideNext()}>
+                            <div className="custom-button-next3 transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef4.current?.slideNext()}>
                                 &gt; {/* Правый символ */}
                             </div>
                             <button

@@ -58,7 +58,7 @@ const GalleryComponent = ({ galleries }) => {
                     className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
                     onClick={handleModalClick} // Обрабатываем клик на фон
                 >
-                    <div className="custom-button-prev4" onClick={() => swiperRef5.current?.slidePrev()}>
+                    <div className="custom-button-prev4 transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef5.current?.slidePrev()}>
                         &lt; {/* Левый символ */}
                     </div>
                     <div className="relative w-full h-full max-w-5xl max-h-[90%] flex items-center justify-center">
@@ -85,7 +85,7 @@ const GalleryComponent = ({ galleries }) => {
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                        <div className="custom-button-next4" onClick={() => swiperRef5.current?.slideNext()}>
+                        <div className="custom-button-next4 transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef5.current?.slideNext()}>
                             &gt; {/* Правый символ */}
                         </div>
                         <button
