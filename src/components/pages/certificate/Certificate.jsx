@@ -52,7 +52,7 @@ export default function Certificate({ slidesToShow }) {
     return (
         <div className='flex justify-between items-center relative'>
             {/* Кастомные стрелки */}
-            <div className="custom-button-prev2 select-none" onClick={() => swiperRef2.current?.slidePrev()}>
+            <div className="custom-button-prev2 select-none transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef2.current?.slidePrev()}>
                 &lt; {/* Левый символ */}
             </div>
             <Swiper
@@ -72,10 +72,10 @@ export default function Certificate({ slidesToShow }) {
             >
                 {certificate.map(({ id, img }, index) => (
                     <SwiperSlide key={id}
-                                 style={{
-                                     display: 'flex',
-                                     justifyContent: 'center',
-                                 }}
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                        }}
                     >
                         <div
                             className="py-[30px] border border-gray-300 flex justify-center flex-col gap-7"
@@ -99,7 +99,7 @@ export default function Certificate({ slidesToShow }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="custom-button-next2 select-none" onClick={() => swiperRef2.current?.slideNext()}>
+            <div className="custom-button-next2 select-none transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef2.current?.slideNext()}>
                 &gt; {/* Правый символ */}
             </div>
             {isModalOpen && (
@@ -107,7 +107,7 @@ export default function Certificate({ slidesToShow }) {
                     className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
                     onClick={handleModalClick} // Обрабатываем клик на фон
                 >
-                    <div className="custom-button-prev3" onClick={() => swiperRef3.current?.slidePrev()}>
+                    <div className="custom-button-prev3 transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef3.current?.slidePrev()}>
                         &lt; {/* Левый символ */}
                     </div>
                     <div className="relative w-full h-full max-w-5xl max-h-[90%] flex items-center justify-center">
@@ -125,21 +125,21 @@ export default function Certificate({ slidesToShow }) {
                             }}
                             onSlideChange={(swiper) => setSelectedImageIndex(swiper.activeIndex)}
                         >
-                            {certificate.map(({id, img}) => (
+                            {certificate.map(({ id, img }) => (
                                 <SwiperSlide key={id}>
                                     <div className="flex justify-center items-center h-[80vh] select-none">
                                         <img src={getImageUrl(img)} alt={`Certificate ${id}`}
-                                             className="max-w-full max-h-full object-contain"/>
+                                            className="max-w-full max-h-full object-contain" />
                                     </div>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                        <div className="custom-button-next3" onClick={() => swiperRef3.current?.slideNext()}>
+                        <div className="custom-button-next3 transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef3.current?.slideNext()}>
                             &gt; {/* Правый символ */}
                         </div>
                         <button
                             onClick={closeModal}
-                            className="absolute top-4 right-4 text-white text-[30px] hover:text-red-500"
+                            className="z-50 top-4 right-4 absolute text-white text-[32px] hover:text-red-500"
                         >
                             ✖
                         </button>

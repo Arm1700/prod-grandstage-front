@@ -94,7 +94,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="flex content-center justify-center gap-20 py-10">
+            <div className="flex content-center justify-center gap-20 py-5">
                 <div className="popularDiv flex flex-col mx-auto px- gap-5">
                     <div className="flex justify-between gap-5 md:flex-row flex-col">
                         <div className="text-start">
@@ -103,7 +103,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="popular flex items-center relative">
-                        <div className="custom-button-prev select-none" onClick={() => swiperRef.current.slidePrev()}>
+                        <div className="custom-button-prev select-none transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef.current.slidePrev()}>
                             &lt;
                         </div>
                         <Swiper
@@ -133,14 +133,14 @@ export default function Home() {
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                        <div className="custom-button-next select-none" onClick={() => swiperRef.current.slideNext()}>
+                        <div className="custom-button-next select-none transition-all duration-300 hover:scale-[1.2]" onClick={() => swiperRef.current.slideNext()}>
                             &gt;
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="flex content-center justify-center gap-20 py-10">
+            <div className="flex content-center justify-center gap-20 py-5">
                 <div className="popularDiv flex flex-col mx-auto px-5 gap-5">
                     <div className="flex justify-between gap-5 md:flex-row flex-col">
                         <div className="text-start">
@@ -154,7 +154,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="text-start pt-20 flex justify-center">
+            <div className="text-start flex justify-center py-5">
                 <div className='popularDiv max-w-[1300px] px-10 lg:px-0 '>
                     <div className="flex justify-between">
                         <h1 className="text-custom-28 font-roboto-slab font-bold text-primaryDark">

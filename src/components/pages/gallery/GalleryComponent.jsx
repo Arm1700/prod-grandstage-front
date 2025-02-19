@@ -1,20 +1,23 @@
 import React, { useState, useCallback, useContext } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { DataContext } from '../context/DataProvider';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, A11y } from 'swiper/modules';
+import { useRef } from 'react';
 const GalleryComponent = ({ galleries }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const { getImageUrl } = useContext(DataContext);
 
-    const handleImageClick = useCallback((image) => {
-        setSelectedImage(image);
+    const swiperRef5 = useRef(null);
+    const handleImageClick = useCallback((index) => {
+        setSelectedImageIndex(index); // Сбрасываем индекс выбранного изображения
         setIsModalOpen(true); // Открываем модальное окно
     }, []);
 
     const closeModal = useCallback(() => {
         setIsModalOpen(false); // Закрываем модальное окно
-        setSelectedImage(null); // Очищаем выбранное изображение
+        setSelectedImageIndex(0); // Сбрасываем индекс выбранного изображения
     }, []);
 
     // Закрытие модального окна при клике на фон
@@ -27,7 +30,7 @@ const GalleryComponent = ({ galleries }) => {
     return (
         <div>
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-7 pt-5">
-                {galleries.map((gallery) => (
+                {galleries.map((gallery, index) => (
                     <div
                         key={gallery.id}
                         className="opacityPopularCourse rounded cursor-pointer relative overflow-hidden aspect-w-1 aspect-h-3"
@@ -39,7 +42,7 @@ const GalleryComponent = ({ galleries }) => {
                         />
                         <div
                             className="absolute inset-0 bg-gray-600 opacity-0 hover:opacity-60 transition-opacity duration-300"
-                            onClick={() => handleImageClick(gallery.img)} // Обрабатываем клик по изображению
+                            onClick={() => handleImageClick(index)} // Обрабатываем клик по изображению
                         >
                             <div className="flex justify-center items-center h-full">
                                 <IoSearch className="text-white text-[30px] transition-transform duration-300 transform" />
@@ -52,14 +55,42 @@ const GalleryComponent = ({ galleries }) => {
             {/* Модальное окно */}
             {isModalOpen && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
-                    onClick={handleModalClick}
+                    className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
+                    onClick={handleModalClick} // Обрабатываем клик на фон
                 >
-                    <div className="relative">
-                        <img src={getImageUrl(selectedImage)} alt="Selected" className="max-w-full max-h-screen" />
+                    <div className="custom-button-prev4" onClick={() => swiperRef5.current?.slidePrev()}>
+                        &lt; {/* Левый символ */}
+                    </div>
+                    <div className="relative w-full h-full max-w-5xl max-h-[90%] flex items-center justify-center">
+                        <Swiper
+                            loop={true}
+                            initialSlide={selectedImageIndex} // Начинаем с выбранного изображения
+                            modules={[Navigation, A11y]}
+                            slidesPerView={1}
+                            navigation={{
+                                nextEl: '.custom-button-next3',
+                                prevEl: '.custom-button-prev3',
+                            }}
+                            onSwiper={(swiper) => {
+                                swiperRef5.current = swiper; // Сохраняем ссылку на экземпляр Swiper
+                            }}
+                            onSlideChange={(swiper) => setSelectedImageIndex(swiper.activeIndex)}
+                        >
+                            {galleries.map(({ id, img }) => (
+                                <SwiperSlide key={id}>
+                                    <div className="flex justify-center items-center h-[80vh]">
+                                        <img src={getImageUrl(img)} alt={`Certificate ${id}`}
+                                            className="max-w-full max-h-full object-contain" />
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                        <div className="custom-button-next4" onClick={() => swiperRef5.current?.slideNext()}>
+                            &gt; {/* Правый символ */}
+                        </div>
                         <button
                             onClick={closeModal}
-                            className="absolute top-2 right-2 text-white text-[30px] hover:text-red-500"
+                            className="z-50 top-4 right-4 absolute text-white text-[32px] hover:text-red-500"
                         >
                             ✖
                         </button>

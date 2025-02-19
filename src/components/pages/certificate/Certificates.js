@@ -112,7 +112,7 @@ export default function Certificates() {
                             </div>
                             <button
                                 onClick={closeModal}
-                                className="absolute top-4 right-4 text-white text-[30px] hover:text-red-500"
+                                className="z-50 top-4 right-4 absolute text-white text-[32px] hover:text-red-500"
                             >
                                 ✖
                             </button>

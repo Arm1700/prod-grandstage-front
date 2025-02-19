@@ -112,7 +112,8 @@
 }
 
 .custom-button-prev, .custom-button-prev2, .custom-button-prev3,
-.custom-button-next, .custom-button-next2, .custom-button-next3 {
+.custom-button-next, .custom-button-next2, .custom-button-next3,
+.custom-button-prev4, .custom-button-next4 {
     position: absolute;
     display: flex;
     align-items: center;
@@ -128,21 +129,27 @@
 
 .custom-button-prev,
 .custom-button-prev2 {
-    right: 100%;
+    right: 101%;
+
 }
 
 .custom-button-next,
-.custom-button-next2 {
-    left: 100%;
+.custom-button-next2,
+.custom-button-next4 {
+    left: 101%;
 }
 
 .custom-button-prev3 {
-    right: 72%;
+    right: 80%;
 }
 
 .custom-button-next3{
-    left: 85%;
+    left: 95%;
 }
+.custom-button-prev4 {
+    right: 84%;
+}
+
 
 .custom-button-prev:hover, .custom-button-prev2:hover, .custom-button-next:hover, .custom-button-next2:hover {
     background-color: rgba(255, 255, 255, 1); /* Цвет фона при наведении */
