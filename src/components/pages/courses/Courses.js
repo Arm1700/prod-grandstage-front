@@ -1,7 +1,6 @@
 import ReactPaginate from 'react-paginate';
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from 'react';
-import CoursesMenu from "./CoursesMenu";
 import Course from "../shared/home/Course";
 import { DataContext } from "../context/DataProvider";
 
@@ -10,11 +9,7 @@ export default function Courses() {
     const [coursesPerPage, setCoursesPerPage] = useState(3);
     const [currentPage, setCurrentPage] = useState(1);
     const { id: coursesId } = useParams();
-    const [showMenu, setShowMenu] = useState(false);
 
-    const toggleMenu = () => {
-        setShowMenu(!showMenu);
-    };
 
     const { courses } = useContext(DataContext); // Use context
     const filteredCourses = courses.filter(course => course.categoryId === coursesId); // Фильтрация по ID категории
@@ -92,7 +87,6 @@ export default function Courses() {
                     {renderPagination()}
                 </div>
             </div>
-            <CoursesMenu isOpen={showMenu} toggleMenu={toggleMenu} categoryId={coursesId} />
         </main>
     );
 }

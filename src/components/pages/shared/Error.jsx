@@ -1,6 +1,6 @@
 // Error404.jsx
-import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Error404 = () => {
     const nav = useNavigate();
@@ -15,10 +15,10 @@ const Error404 = () => {
                 Page</h1>
             <div className="flex py-20 mid:px-20 xs:px-5 justify-center gap-10 items-center mx-[auto] mid:flex-row max:flex-col">
                 <img className="sm:w-[470px] xs:w-[300px]"
-                     style={{
-                         aspectRatio: "6/5"
-                     }}
-                     src="https://eduma.thimpress.com/wp-content/uploads/2022/07/404-error.png" alt=""/>
+                    style={{
+                        aspectRatio: "6/5"
+                    }}
+                    src="https://eduma.thimpress.com/wp-content/uploads/2022/07/404-error.png" alt="" />
                 <div className="sm:w-[420px] xs:w-[300px]">
                     <p className="text-7xl font-roboto-slab text-primaryDark">
                         404
@@ -27,10 +27,10 @@ const Error404 = () => {
                     <p className="text-custom-15 text-color60">
                         Sorry, we can't find the page you are looking for. Please go to
                         <span className="text-primary cursor-pointer font-bold"
-                              onMouseEnter={() => setIsHovered(true)}
-                              onMouseLeave={() => setIsHovered(false)}
-                              onClick={goBack}
-                              style={{borderBottom: isHovered ? '2px solid #FFB606' : 'none'}}
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            onClick={goBack}
+                            style={{ borderBottom: isHovered ? '2px solid #FFB606' : 'none' }}
                         > Home.</span>
                     </p>
                 </div>

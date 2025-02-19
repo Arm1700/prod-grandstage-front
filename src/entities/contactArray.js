@@ -15,7 +15,7 @@ const contactArray = [
   title:'Contact info',
   color:'#5ebb3e',
   Icon:MdOutlineContactMail,
-  description:'Mobile: +1(818) 667-7107 \n Mail: grandeducationalcentre@gmail.com'
+  description:'Mobile: +1(747) 236-8888 \n Mail: grandeducationalcentre@gmail.com'
 },
 {
   id:3,

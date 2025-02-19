@@ -145,7 +145,7 @@ export default function Home() {
                     <div className="flex justify-between gap-5 md:flex-row flex-col">
                         <div className="text-start">
                             <h1 className="text-3xl font-roboto-slab font-bold text-color12">Explore Certificates</h1>
-                            <p className="text-color66">Lorem ipsum dolor sit amet.</p>
+                            {/* <p className="text-color66">Lorem ipsum dolor sit amet.</p> */}
                         </div>
                     </div>
                     <div className="popular">
