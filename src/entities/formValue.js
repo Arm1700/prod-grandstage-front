@@ -51,7 +51,7 @@ export const formValue = {
         label: "Pay with Zelle",
         type: "text",
         placeholder: "Pay with Zelle",
-        value: '747-236-888',
+        value: '747-236-8888',
         disabled: true,
         required: false,
         bold:'font-bold',

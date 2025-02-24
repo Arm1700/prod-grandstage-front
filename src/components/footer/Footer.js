@@ -16,7 +16,7 @@ const Footer = () => {
                     {/*<Logo/>*/}
                     <p className="flex text-color92">
                         <FaPhoneAlt className="mx-2 text-white" />
-                        +1(818) 667-7107
+                        +1(747) 236-8888
                     </p>
                     <p className="flex text-color92">
                         <MdOutlinePlace className="mx-2 text-white" />

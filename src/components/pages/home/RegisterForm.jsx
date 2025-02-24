@@ -55,7 +55,7 @@ export default function RegisterForm() {
                     <div key={index}>
                         <label htmlFor={field.name} className="block text-sm font-medium text-gray-700">
                             {field.label}
-                        </label>
+                        </label>    
                         <Input
                             id={field.name}
                             type={field.type}
