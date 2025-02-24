@@ -48,7 +48,7 @@ export default function Certificates() {
     return (
         <main className="px-5 max-w-[1300px] mx-auto py-5 flex flex-col min-h-[52.3vh]">
             <div className="flex flex-col gap-[20px]">
-                <p className="text-5xl text-color12 font-roboto-slab font-bold">Gallery</p>
+                <p className="text-5xl text-color12 font-roboto-slab font-bold">Certificates</p>
             </div>
             <div>
                 <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-14 pt-5">
